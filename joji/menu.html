@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Joji Fans</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Verdana, sans-serif;
+        }
+
+        /* Contenedor principal */
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+
+        /* Menú lateral */
+        .menu {
+            width: 220px;
+            background-color: #ffcccc;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .menu h3 {
+            text-align: center;
+        }
+
+        .menu a {
+            display: block;
+            margin: 10px 0;
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+        }
+
+        .menu a:hover {
+            color: red;
+        }
+
+        /* Marco de contenido */
+        .content-frame {
+            flex: 1;
+            border: none;
+        }
+
+        /* Reloj */
+        #reloj {
+            font-weight: bold;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        /* Botón de canciones */
+        .song-button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: red;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .song-button:hover {
+            background-color: darkred;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Menú lateral -->
+    <div class="menu">
+        <h3>Menú</h3>
+        <a href="index.html" target="content">Inicio</a>
+        <a href="pixelated kisses.html" target="content">Pixelated Kisses</a>
+        <a href="gimme love.html" target="content">Gimme Love</a>
+        <a href="pwlmb.html" target="content">PWLMB</a>
+        <a href="bibliografia.html" target="content">Biografía</a>
+
+        <!-- Reloj -->
+        <div id="reloj"></div>
+    </div>
+
+    <!-- Marco de contenido -->
+    <iframe name="content" class="content-frame" src="inicio.html"></iframe>
+</div>
+
+<script>
+    // Función para mostrar hora de Mérida, Yucatán
+    function actualizarReloj() {
+        const options = { timeZone: 'America/Merida', hour: '2-digit', minute: '2-digit', second: '2-digit' };
+        const horaMerida = new Intl.DateTimeFormat('es-MX', options).format(new Date());
+        document.getElementById('reloj').textContent = "Hora Mérida: " + horaMerida;
+    }
+    setInterval(actualizarReloj, 1000);
+    actualizarReloj();
+</script>
+
+</body>
+</html>
